@@ -30,6 +30,10 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
+
+        @products = Product.all
+        ActionCable.server.broadcast 'products',
+          html: render_to_string('store/index', layout: false)
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -61,6 +65,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def who_bought
+    @product = Product.find(params[:id])
+    @latest_order = @product.orders.order(:updated_at).last
+      if stale?(@latest_order)
+        respond_to do |format|
+          format.atom
+        end
+      end
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

@@ -64,38 +64,82 @@ body, body>p, body>ol, body>ul, body>td {
   padding: 3em 5em;
   background: #141;
 }
+
 #columns #side input {
-    font-size: small;
+  font-size: small;
 }
+
 #columns #side #cart {
-    font-size: smaller;
-    color: #fff;
+  font-size: smaller;
+  color: #fff;
 }
+
 #columns #side #cart table {
-      border-top: 1px dotted #595;
-      border-bottom: 1px dotted #595;
-      margin-bottom: 10px;
+  border-top: 1px dotted #595;
+  border-bottom: 1px dotted #595;
+  margin-bottom: 10px;
 }
-  #columns #side ul {
-    padding: 0;
+
+#columns #side ul {
+  padding: 0;
+}
+
+#columns #side ul li {
+  list-style: none;
+}
+
+#columns #side ul li a {
+  color: white;
+  font-size: small;
+}
+
+@media all and (max-width: 800px) {
+  #columns {
+    flex-direction: column-reverse;
   }
-  #columns #side ul li {
-    list-style: none;
+}
+
+@media all and (max-width: 500px) {
+  #banner {
+    height: 1em;
   }
-  #columns #side ul li a {
-    color: white;
-    font-size: small;
+  #banner .title {
+    display: none;
   }
-  @media all and (max-width: 800px) {
-    #columns {
-      flex-direction: column-reverse;
+}
+
+
+.depot_form  fieldset {
+    background: #efe;
+  }
+.depot_form  fieldset legend {
+      color: #dfd;
+      background: #141;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+  }
+
+.depot_form fieldset div {
+      margin-bottom: 0.3em;
+    }
+
+
+.depot_form  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
     }
   }
-  @media all and (max-width: 500px) {
-    #banner {
-      height: 1em;
+.depot_form select, textarea, input {
+      margin-left: 0.5em;
     }
-    #banner .title {
-      display: none;
+.depot_form  .submit {
+      margin-left: 4em;
     }
-  }
+.depot_form br {
+      display: none
+    }
